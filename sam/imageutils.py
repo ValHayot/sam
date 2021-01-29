@@ -395,11 +395,13 @@ class ImageUtils:
             if end_index >= len(split_names):
                 end_index = len(split_names) - 1
 
+            end_index = int(end_index)
+
             split_pos = pos_to_int_tuple(split_ext(split_names[end_index])
                                          [0].split('_'))
-            end_pos = (split_pos[0] + y_size,
-                       split_pos[1] + z_size,
-                       split_pos[2] + x_size)
+            end_pos = (int(split_pos[0] + y_size),
+                       int(split_pos[1] + z_size),
+                       int(split_pos[2] + x_size))
             split_pos_in_range = [pos_to_int_tuple(split_ext(x)[0].split('_'))
                                   for x
                                   in split_names[start_index:end_index + 1]]
